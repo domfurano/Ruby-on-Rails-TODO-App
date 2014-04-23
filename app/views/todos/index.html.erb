@@ -1,7 +1,7 @@
 <title>Todo!</title>
 <div class="container">
   <div class="row">
-    <div class="span5">
+    <div class="span6">
       <h1>Todo App</h1>
       <hr/>
 
@@ -18,7 +18,7 @@
       <% end %>
 
       <% if flash[:success] %>
-        <div class="babywin" style ="background-image: url(<%= asset_path 'babywin.jpg' %>);">
+        <div class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert">×</button>
           <strong><%= flash[:success] %></strong>
         </div>
@@ -26,21 +26,27 @@
 
       <div class="well">
 
-        <%= form_tag("/todos/complete/", :method => "post") do %>
+        <%= form_tag "/todos/complete/", :method => "post" do %>
         <ul style="list-style-type:none;">
+        <%= check_box_tag "select_all" %>
+        <%= label_tag "select_all", "select all", :class => "checkbox inline"%>
         <% @todo_items.each do |t| %>
           <% if t.completed == true %>
-            <li style="color:grey;"> <%= check_box_tag  "todos_checkbox[]",t.id %>  <strike><%= t.todo_item %></strike> </li>
+            <li style="color:grey;"><%= check_box_tag "todos_checkbox[]", t.id %>
+              <strike><%= t.todo_item %></strike>
+            </li>
           <% else %>
-            <li> <%= check_box_tag  "todos_checkbox[]",t.id %> <%= t.todo_item %>  </li>
+            <li><%= check_box_tag "todos_checkbox[]", t.id %>
+              <%= t.todo_item %>
+            </li>
           <% end %>
         <% end %>
         </ul>
-        <%= submit_tag("complete todos", :class => "btn btn-success") %>
+        <%= submit_tag "complete todos", :class => "btn btn-success" %>
+        <%= submit_tag "delete todos", :name => "delete_button", :class => "btn btn-warning" %>
         <% end %>
 
       </div> <!-- well -->
     </div> <!-- span4 -->
   </div> <!-- row -->
-  <%= link_to "delete last todo", delete_path %>
 </div> <!-- container -->
