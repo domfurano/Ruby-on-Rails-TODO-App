@@ -11,6 +11,7 @@ class TodosController < ApplicationController
 		if !todo.valid?
 			flash[:error] = todo.errors.full_messages.join("<br\>").html_safe
 		else
+			todo.update_attribute(:completed, false)
 			flash[:success] = "todo added"
 		end
 		redirect_to :action => 'index'
@@ -28,7 +29,11 @@ class TodosController < ApplicationController
 					t.save
 				# Else the complete button was selected.
 				else
-				 t.update_attribute(:completed, true);
+					if t[:completed] == false
+						t.update_attribute(:completed, true)
+					else
+						t.update_attribute(:completed, false)
+					end
 			  end
 			end
 		end
