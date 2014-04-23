@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.babywin {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 400px;
+  height: 266px;
+}

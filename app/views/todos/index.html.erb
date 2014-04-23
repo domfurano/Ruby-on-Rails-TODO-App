@@ -5,16 +5,26 @@
       <h1>Todo App</h1>
       <hr>
       <p>saved todos</p>
-      <%= form_tag("/todos/add", :method=>"post") do %>
-        <%= text_field_tag(:todo_text) %>
-        <%= submit_tag("add todo", :class=>"btn") %>
-      <% end %>
+
+      <%= form_for @new_todo, :url => { :action => "add" }  do |f|  %>
+        <%= f.text_field  :todo_item %>
+        <%= f.submit "Add todo", class: "btn btn-primary" %>
+      <%end%>
+
       <% if !flash[:error].nil? %>
         <div class="alert alert-error">
           <button type="button" class="close" data-dismiss="alert">x</button>
           <strong><%= flash[:error] %></strong>
         </div>
       <% end %>
+
+      <% if flash[:success] %>
+        <div class="babywin" style ="background-image: url(<%= asset_path 'babywin.jpg' %>);">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong><%= flash[:success] %></strong>
+        </div>
+      <% end %>
+
       <div class="well">
         <% @todo_items.each do |t| %>
          <li> <%= t.todo_item %> </li>
