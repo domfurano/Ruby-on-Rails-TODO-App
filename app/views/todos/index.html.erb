@@ -26,8 +26,17 @@
       <% end %>
 
       <div class="well">
+        <%= form_tag("/todos/complete/", :method => "post") do %>
+        <ul style="list-style-type:none;">
         <% @todo_items.each do |t| %>
-         <li> <%= t.todo_item %> </li>
+          <% if t.completed == true %>
+            <li style="color:grey;"> <%= check_box_tag  "todos_checkbox[]",t.id %>  <strike><%= t.todo_item %></strike> </li>
+          <% else %>
+            <li> <%= check_box_tag  "todos_checkbox[]",t.id %> <%= t.todo_item %>  </li>
+          <% end %>
+        <% end %>
+        </ul>
+        <%= submit_tag("complete todos", :class => "btn btn-success") %>
         <% end %>
       </div> <!-- well -->
     </div> <!-- span4 -->
