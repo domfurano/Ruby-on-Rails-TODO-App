@@ -3,8 +3,7 @@
   <div class="row">
     <div class="span5">
       <h1>Todo App</h1>
-      <hr>
-      <p>saved todos</p>
+      <hr/>
 
       <%= form_for @new_todo, :url => { :action => "add" }  do |f|  %>
         <%= f.text_field  :todo_item %>
@@ -26,6 +25,7 @@
       <% end %>
 
       <div class="well">
+
         <%= form_tag("/todos/complete/", :method => "post") do %>
         <ul style="list-style-type:none;">
         <% @todo_items.each do |t| %>
@@ -38,6 +38,7 @@
         </ul>
         <%= submit_tag("complete todos", :class => "btn btn-success") %>
         <% end %>
+
       </div> <!-- well -->
     </div> <!-- span4 -->
   </div> <!-- row -->
