@@ -1,15 +1,9 @@
 class TodosController < ApplicationController
+
 	def index
 		@todo_items = Todo.all
 		@new_todo = Todo.new
 		render :index
-	end
-
-	def delete
-		#put delete logic here
-		t = Todo.last
-		t.delete
-		t.save
 	end
 
 	def add
@@ -23,10 +17,20 @@ class TodosController < ApplicationController
 	end
 
 	def complete
-		params[:todos_checkbox].each do |check|
-			todo_id = check
-			t = Todo.find_by_id(todo_id)
-			t.update_attribute(:completed, true);
+		# Check to see if any boxes are checked.
+		if !params[:todos_checkbox].nil?
+			params[:todos_checkbox].each do |check|
+				todo_id = check
+				t = Todo.find_by_id(todo_id)
+				# Had to combine delete button action here.
+				if params[:delete_button]
+					t.delete
+					t.save
+				# Else the complete button was selected.
+				else
+				 t.update_attribute(:completed, true);
+			  end
+			end
 		end
 	redirect_to :action => 'index'
 	end
