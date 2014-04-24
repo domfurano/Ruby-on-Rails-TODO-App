@@ -16,6 +16,7 @@
 //= require_tree .
 
 $(function() {
+    // Implements 'select all' funcationality.
     $("#select_all").click(function() {
         if (this.checked) {
             $(":checkbox").each(function() {
@@ -28,11 +29,11 @@ $(function() {
         }
     });
 
-    $(".alert").hide().slideDown("slow");
+    // Fades in alert.
+    $(".alert").hide().fadeIn("slow");
 
+    // Fades out alert.
     window.setTimeout(function() {
-        $(".alert").slideUp("fast", function() {
-            $(".alert").remove();
-        });
+        $(".alert").fadeOut("fast");
     }, 2000);
 });

@@ -1,0 +1,8 @@
+<% @todo_items.each do |t| %>
+  <% if t.completed == true %>
+    <li style="color:grey;">
+      <%= check_box_tag "todos_checkbox[]", t.id %>
+      <%= label_tag "todos_checkbox[]", t.todo_item, :class => "checkbox inline completed" %>
+    </li>
+  <% end %>
+<% end %>

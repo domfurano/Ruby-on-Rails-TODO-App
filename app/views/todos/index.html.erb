@@ -1,44 +1,21 @@
 <title>Todo!</title>
 <div class="container">
   <div class="row">
+    <div class="span3"></div>
     <div class="span6">
       <h1>Todo App</h1>
       <hr/>
 
-      <%= form_for @new_todo, :url => { :action => "add" }  do |f|  %>
-        <%= f.text_field  :todo_item %>
-        <%= f.submit "Add todo", class: "btn btn-success" %>
-      <%end%>
-
-      <% if flash[:error] %>
-        <div class="alert alert-error">
-          <strong><%= flash[:error] %></strong>
-        </div>
-      <% end %>
-
-      <% if flash[:success] %>
-        <div class="alert alert-success">
-          <strong><%= flash[:success] %></strong>
-        </div>
-      <% end %>
+      <%= render "new" %>
 
       <div class="well">
 
-        <%= form_tag "/todos/complete/", :method => "post" do %>
+        <%= form_tag "/todos/complete/", :method => "post", :id => "todo_list" do %>
         <ul style="list-style-type:none;">
-        <% @todo_items.each do |t| %>
-          <% if t.completed == true %>
-            <li style="color:grey;">
-              <%= check_box_tag "todos_checkbox[]", t.id %>
-              <%= label_tag "todos_checkbox[]", t.todo_item, :class => "checkbox inline completed" %>
-            </li>
-          <% else %>
-            <li>
-              <%= check_box_tag "todos_checkbox[]", t.id %>
-              <%= label_tag "todos_checkbox[]", t.todo_item, :class => "checkbox inline" %>
-            </li>
-          <% end %>
-        <% end %>
+
+          <%= render "incomplete_list" %>
+          <%= render "complete_list" %>
+
         <hr/>
         <%= check_box_tag "select_all" %>
         <%= label_tag "select_all", "select all", :id => "select_all", :class => "checkbox inline" %>

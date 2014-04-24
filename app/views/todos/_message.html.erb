@@ -1,0 +1,11 @@
+<% if flash[:error] %>
+  <div class="alert alert-error lineup">
+    <strong><%= flash[:error] %></strong>
+  </div>
+<% end %>
+
+<% if flash[:success] %>
+  <div class="alert alert-success lineup">
+    <strong><%= flash[:success] %></strong>
+  </div>
+<% end %>

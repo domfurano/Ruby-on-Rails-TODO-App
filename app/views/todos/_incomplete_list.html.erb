@@ -1,0 +1,9 @@
+<% @todo_items.each do |t| %>
+  <% if t.completed == false %>
+    <li>
+      <%= check_box_tag "todos_checkbox[]", t.id %>
+      <%= label_tag "todos_checkbox[]", t.todo_item, :class => "checkbox inline" %>
+      <%= link_to "remove", "/todos/delete" %>
+    </li>
+  <% end %>
+<% end %>

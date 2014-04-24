@@ -6,6 +6,15 @@ class TodosController < ApplicationController
 		render :index
 	end
 
+	def new
+	end
+
+	def delete
+		@todo = Todo.find(params[:id])
+		@todo.delete
+		redirect_to :action => "index"
+	end
+
 	def add
 		todo = Todo.create(:todo_item => params[:todo][:todo_item])
 		if !todo.valid?

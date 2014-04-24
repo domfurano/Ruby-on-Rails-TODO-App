@@ -1,0 +1,6 @@
+<%= form_for @new_todo, :url => { :action => "add" }, :id => "todo_input" do |f|  %>
+  <%= f.text_field  :todo_item %>
+  <%= render "message" %>
+  <br/>
+  <%= f.submit "Add todo", class: "btn btn-success" %>
+<%end%>
