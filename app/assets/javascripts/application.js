@@ -16,15 +16,23 @@
 //= require_tree .
 
 $(function() {
-  $("#select_all").click(function() {
-    if (this.checked) {
-      $(":checkbox").each(function() {
-        this.checked = true;
-      });
-    } else {
-      $(":checkbox").each(function() {
-        this.checked = false;
-      });
-    }
-  });
+    $("#select_all").click(function() {
+        if (this.checked) {
+            $(":checkbox").each(function() {
+                this.checked = true;
+            });
+        } else {
+            $(":checkbox").each(function() {
+                this.checked = false;
+            });
+        }
+    });
+
+    $(".alert").hide().slideDown("slow");
+
+    window.setTimeout(function() {
+        $(".alert").slideUp("fast", function() {
+            $(".alert").remove();
+        });
+    }, 2000);
 });
