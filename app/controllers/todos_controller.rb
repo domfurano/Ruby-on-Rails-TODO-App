@@ -29,7 +29,7 @@ class TodosController < ApplicationController
 					t.save
 				# Else the complete button was selected.
 				else
-					if t[:completed] == false
+					if t.read_attribute(:completed) == false
 						t.update_attribute(:completed, true)
 					else
 						t.update_attribute(:completed, false)

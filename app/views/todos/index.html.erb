@@ -29,21 +29,23 @@
         <%= form_tag "/todos/complete/", :method => "post" do %>
         <ul style="list-style-type:none;">
         <%= check_box_tag "select_all" %>
-        <%= label_tag "select_all", "select all", :class => "checkbox inline"%>
+        <%= label_tag "select_all", "select all", :class => "checkbox inline" %>
         <% @todo_items.each do |t| %>
           <% if t.completed == true %>
-            <li style="color:grey;"><%= check_box_tag "todos_checkbox[]", t.id %>
-              <strike><%= t.todo_item %></strike>
+            <li style="color:grey;">
+              <%= check_box_tag "todos_checkbox[]", t.id %>
+              <%= label_tag "todos_checkbox[]", t.todo_item, :class => "checkbox inline completed" %>
             </li>
           <% else %>
-            <li><%= check_box_tag "todos_checkbox[]", t.id %>
-              <%= t.todo_item %>
+            <li>
+              <%= check_box_tag "todos_checkbox[]", t.id %>
+              <%= label_tag "todos_checkbox[]", t.todo_item, :class => "checkbox inline" %>
             </li>
           <% end %>
         <% end %>
         </ul>
         <%= submit_tag "complete todos", :class => "btn btn-success" %>
-        <%= submit_tag "delete todos", :name => "delete_button", :class => "btn btn-warning" %>
+        <%= submit_tag "delete todos", :name => "delete_button", :onclick => "return confirm('Are you sure?')", :class => "btn btn-danger" %>
         <% end %>
 
       </div> <!-- well -->
