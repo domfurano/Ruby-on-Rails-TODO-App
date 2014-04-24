@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $("#select_all").click(function() {
+    if (this.checked) {
+      $(":checkbox").each(function() {
+        this.checked = true;
+      });
+    } else {
+      $(":checkbox").each(function() {
+        this.checked = false;
+      });
+    }
+  });
+});
