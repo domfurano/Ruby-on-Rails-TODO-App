@@ -6,13 +6,12 @@ class TodosController < ApplicationController
 		render :index
 	end
 
-	def new
+	def completed
+		@todo_items = Todo.all
 	end
 
-	def delete
-		@todo = Todo.find(params[:id])
-		@todo.delete
-		redirect_to :action => "index"
+	def incomplete
+		@todo_items = Todo.all
 	end
 
 	def add
@@ -23,7 +22,7 @@ class TodosController < ApplicationController
 			todo.update_attribute(:completed, false)
 			flash[:success] = "todo added"
 		end
-		redirect_to :action => 'index'
+		redirect_to :action => 'complete'
 	end
 
 	def complete
@@ -45,6 +44,7 @@ class TodosController < ApplicationController
 					end
 			  end
 			end
+			redirect_to :action => 'index'
 		end
 	redirect_to :action => 'index'
 	end

@@ -10,7 +10,9 @@
 
   <div class="navbar">
     <div class="navbar-inner">
-      <a class="brand" href="#">foo</a>
+      <%= link_to "new", "/todos/index", :class => "brand" %>
+      <%= link_to "incomplete", "/todos/incomplete", :class => "brand" %>
+      <%= link_to "completed", "/todos/completed", :class => "brand" %>
     </div>
   </div>
 

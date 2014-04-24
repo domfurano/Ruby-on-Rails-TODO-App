@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   match "todos/complete" => "todos#complete", :as => :complete, via: [:get, :post]
 
+  match "todos/completed" => "todos#completed", :as => :completed, via: [:get, :post]
+
+  match "/todos/incomplete" => "todos#incomplete", :as => :incomplete, via: [:get, :post]
+
 end

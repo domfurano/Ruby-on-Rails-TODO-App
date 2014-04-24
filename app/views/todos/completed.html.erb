@@ -1,0 +1,28 @@
+<title>Completed Todos</title>
+<div class="container">
+  <div class="row">
+    <div class="span3"></div>
+    <div class="span6">
+      <h1>Completed Todos</h1>
+      <hr/>
+
+      <div class="well">
+
+        <%= form_tag "/todos/complete/", :method => "post", :id => "todo_list" do %>
+          <ul style="list-style-type:none;">
+
+            <%= render "complete_list" %>
+
+          <hr/>
+          <%= check_box_tag "select_all" %>
+          <%= label_tag "select_all", "select all", :id => "select_all", :class => "checkbox inline" %>
+          <br/>
+          </ul>
+          <%= submit_tag "complete todos", :class => "btn btn-success" %>
+          <%= submit_tag "delete todos", :name => "delete_button", :onclick => "return confirm('Are you sure?')", :class => "btn btn-danger" %>
+        <% end %>
+
+      </div> <!-- well -->
+    </div> <!-- span4 -->
+  </div> <!-- row -->
+</div> <!-- container -->
