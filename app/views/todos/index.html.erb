@@ -19,7 +19,7 @@
 
       <% if flash[:success] %>
         <div class="alert alert-success">
-          <button type="button" class="close" data-dismiss="alert">×</button>
+          <button type="button" class="close">×</button>
           <strong><%= flash[:success] %></strong>
         </div>
       <% end %>
@@ -28,9 +28,6 @@
 
         <%= form_tag "/todos/complete/", :method => "post" do %>
         <ul style="list-style-type:none;">
-        <%= check_box_tag "select_all" %>
-        <%= label_tag "select_all", "select all", :id => "select_all", :class => "checkbox inline" %>
-        <hr/>
         <% @todo_items.each do |t| %>
           <% if t.completed == true %>
             <li style="color:grey;">
@@ -44,6 +41,10 @@
             </li>
           <% end %>
         <% end %>
+        <hr/>
+        <%= check_box_tag "select_all" %>
+        <%= label_tag "select_all", "select all", :id => "select_all", :class => "checkbox inline" %>
+        <br/>
         </ul>
         <%= submit_tag "complete todos", :class => "btn btn-success" %>
         <%= submit_tag "delete todos", :name => "delete_button", :onclick => "return confirm('Are you sure?')", :class => "btn btn-danger" %>
