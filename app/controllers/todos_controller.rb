@@ -1,7 +1,6 @@
 class TodosController < ApplicationController
 
 	def index
-		@todo_items = Todo.all
 		@new_todo = Todo.new
 		render :index
 	end
@@ -44,7 +43,6 @@ class TodosController < ApplicationController
 					end
 			  end
 			end
-			redirect_to :action => 'index'
 		end
 	redirect_to :action => 'index'
 	end
