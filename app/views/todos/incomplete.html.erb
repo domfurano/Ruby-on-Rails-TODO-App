@@ -8,7 +8,7 @@
 
       <div class="well">
 
-        <%= form_tag "/todos/complete/", :method => "post", :id => "todo_list" do %>
+        <%= form_tag "/todos/incomplete/", :method => "post", :id => "todo_list" do %>
           <ul style="list-style-type:none;">
 
             <%= render "incomplete_list" %>
@@ -18,8 +18,8 @@
           <%= label_tag "select_all", "select all", :id => "select_all", :class => "checkbox inline" %>
           <br/>
           </ul>
-          <%= submit_tag "complete todos", :class => "btn btn-success" %>
-          <%= submit_tag "delete todos", :name => "delete_button", :onclick => "return confirm('Are you sure?')", :class => "btn btn-danger" %>
+          <%= submit_tag "complete", :class => "btn btn-success" %>
+          <%= submit_tag "delete", :name => "delete_button", :onclick => "return confirm('Are you sure?')", :class => "btn btn-danger" %>
         <% end %>
 
       </div> <!-- well -->
