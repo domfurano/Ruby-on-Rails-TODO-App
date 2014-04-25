@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   match "todos/delete" => "todos#delete", :as => :delete, via: [:get, :post]
 
-  match "todos/complete" => "todos#complete", :as => :complete, via: [:get, :post]
+  match "todos/help" => "todos#help", :as => :help, via: [:get, :post]
 
   match "todos/completed" => "todos#completed", :as => :completed, via: [:get, :post]
 

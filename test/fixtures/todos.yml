@@ -1,7 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# Basic fixture.
 one:
-  todo_item: MyString
+  todo_item: "chew bubblegum"
+  todo_item: "kick ass"
 
+# Complete-this-assignment fixture.
 two:
-  todo_item: MyString
+  todo_item: "Show an understanding of how to create models, views, and controllers. (Effectively use this architecture.)"
+  todo_item: "Have at least several different pages, preferably several pages for several different actions."
+  todo_item: "Meet some real (or made-up) user need."
+  todo_item: "Have some testing ability."
+  todo_item: "Show some attempt at proper documentation and SE practices."
+  todo_item: "Show some 'nod' to the UI."
