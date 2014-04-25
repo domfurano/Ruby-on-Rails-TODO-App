@@ -1,10 +1,19 @@
+=begin	
+		todos_controller.rb
+		Authors: Dominic Furano and Michael Smith
+		Date: 4/25/14
+		Description: describes what to do when navbar buttons are clicked.
+=end
+
 class TodosController < ApplicationController
 
+	# Method for the index page.
 	def index
 		@new_todo = Todo.new
 		render :index
 	end
 
+	# Method for the "completed" page.
 	def completed
 		@todo_items = Todo.all
 		if !params[:todos_checkbox].nil?
@@ -27,6 +36,7 @@ class TodosController < ApplicationController
 		end
 	end
 
+	# Method for the "incomplete" page.
 	def incomplete
 		@todo_items = Todo.all
 		if !params[:todos_checkbox].nil?
@@ -49,6 +59,7 @@ class TodosController < ApplicationController
 		end
 	end
 
+	# Method for the Add todo form.
 	def add
 		todo = Todo.create(:todo_item => params[:todo][:todo_item])
 		if !todo.valid?

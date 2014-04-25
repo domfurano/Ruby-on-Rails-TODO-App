@@ -1,3 +1,10 @@
+=begin	
+		todos_test.rb
+		Authors: Michael Smith
+		Date: 4/25/14
+		Description: contains three basic tests.
+=end
+
 require 'test_helper'
 
 class TodoTest < ActiveSupport::TestCase

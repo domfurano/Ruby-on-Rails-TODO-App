@@ -1,3 +1,10 @@
+=begin	
+		test_helper.rb
+		Authors: Michael Smith
+		Date: 4/25/14
+		Description: sets up test fixtures.
+=end
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
