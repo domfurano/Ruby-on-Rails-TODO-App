@@ -60,7 +60,4 @@ class TodosController < ApplicationController
 		redirect_to :action => 'index'
 	end
 
-	def complete
-	end
-
 end

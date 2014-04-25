@@ -29,10 +29,10 @@ $(function() {
     });
 
     // Fades in alert.
-    $(".alert").hide().fadeIn("slow");
+    $(".alert").hide().fadeIn("fast");
 
     // Fades out alert.
     window.setTimeout(function() {
-        $(".alert").fadeOut("fast");
+        $(".alert").fadeOut("slow");
     }, 2000);
 });
