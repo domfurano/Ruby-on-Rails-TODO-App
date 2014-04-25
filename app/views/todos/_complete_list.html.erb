@@ -1,3 +1,10 @@
+<!--	
+		_complete_list.html.erb
+		Authors: Dominic Furano
+		Date: 4/25/14
+		Description: creates the list of completed todos.
+-->
+
 <% @todo_items.each do |t| %>
   <% if t.completed == true %>
     <li style="color:grey;">

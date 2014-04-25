@@ -1,3 +1,10 @@
+<!--	
+		_new.html.erb
+		Authors: Dominic Furano
+		Date: 4/25/14
+		Description: creates the Add todo form on the "new" page.
+-->
+
 <%= form_for @new_todo, :url => { :action => "add" }, :id => "todo_input" do |f|  %>
   <%= f.text_field  :todo_item %>
   <%= render "message" %>
